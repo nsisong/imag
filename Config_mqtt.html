@@ -1,13 +1,25 @@
-<!-- HTTP_HEAD -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-		<title>{v}</title>
-<!-- /HTTP_HEAD -->
-<!-- HTTP_STYLE -->
-<style>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Config ESP</title>
+    <script>
+
+    function c(l,e) {
+    	console.log(l);
+    	// preventDefault();
+        document.getElementById('s').value = l.innerText || l.textContent;
+        // document.location.href = document.location +"#wmform";
+        p = l.nextElementSibling.classList.contains("l");
+        document.getElementById('p').disabled = !p;
+        if(p)document.getElementById('p').focus();
+        return false;
+    }
+
+    </script>
+
+<style>
 :root{
 	 /* CSS VARIABLE THEME COLOR */
 	/*--primarycolor:#9933CC;*/
@@ -197,42 +209,70 @@ input:disabled {
 	/* not working in cp ?? */
 }
 </style>
-<!-- /HTTP_STYLE -->
-<!-- HTTP_SCRIPT -->
-		<script>
-		function c(l){document.getElementById('s').value=l.innerText||l.textContent;
-		p = l.nextElementSibling.classList.contains('l');
-		document.getElementById('p').disabled = !p;
-		if(p)document.getElementById('p').focus()};
-		</script>
-<!-- /HTTP_SCRIPT -->
-<!-- HTTP_HEAD_END -->
-	</head>
-	<body class="invert">
-		<div class='wrap'>
-		<!-- <div class='wrap ql qinv'> -->
-<!-- /HTTP_HEAD_END -->
-			<!-- SAMPLE -->
-			<h2>/</h2><hR>
-			<!-- /SAMPLE -->
-			<!-- HTTP_PORTAL_OPTIONS -->
-			<!-- /HTTP_PORTAL_OPTIONS -->
-			<!-- HTTP_PORTAL_MENU[] -->
-			<form action='config_wifi.html' method='get'><button>Configure WiFi</button></form><br/>
-			<form action='Config_mqtt.html' method='get'><button>Configure Mqtt</button></form><br/>
-			<form action='info.html' method='get'><button>Info</button></form><br/>
-			<form action='setup.html' method='get'><button>Setup</button></form><br/>
-			<Hr><br/>
-			<form action='about.html' method='post'><button>About</button></form><br/>
-			<form action='/erase' method='post'><button class='D'>Erase</button></form><br/>
-			<form action='/restart' method='post'><button>Restart</button></form><br/>
-			<form action='/exit' method='post'><button>Exit</button></form><br/>
-			<form action='/' method='post'><button>Back</button></form><br/>
-			<!-- /HTTP_PORTAL_MENU -->
-			
 
-<!-- HTTP_END -->
+</head>
+
+<body class="invert">
+ 	<!-- classes, left/right invert -->
+    <div class='wrap'>
+        <h3>Mqtt</h3><hr>
+        <br/><label for='custom'>Server</label>
+        <br/><input id='custom' name='custom' length='255' placeholder='Server url' value='' {c}>
+        <!-- /SAMPLE -->
+        <!-- HTTP_FORM_LABEL -->
+        <br/><label for='k'>Auth Key</label>
+        <br/><input id='k' name='k' length='255' placeholder='Auth Key' value='' {c}>
+        <!-- /SAMPLE -->
+        <!-- HTTP_FORM_LABEL -->
+        <br/><label for='p'>Server Password</label>
+        <br/><input id='p' name='p' length='255' placeholder='Server Password' value='' {c}>
+        <!-- /SAMPLE -->
+        <!-- HTTP_FORM_LABEL -->
+        <br/><label for='i'>Port</label>
+        <!-- /HTTP_FORM_LABEL -->
+        <!-- HTTP_FORM_PARAM -->
+        <br/><input id='i' name='i' length='4' placeholder='Port' value='' {c}>
+        <!-- /HTTP_FORM_PARAM -->
+        <!-- HTTP_FORM_END -->
+        <br/><button type='submit'>Save</button></form>
+        <br/>
+        <!-- /HTTP_FORM_END -->
+        <!-- HTTP_SCAN_LINK -->
+        <br/><form action='/wifi' method='get'><button>Refresh</button></form>
+        <!-- /HTTP_SCAN_LINK -->
+        <!-- HTTP_SAVED -->
+        <div class='msg'><h4>Saving Credentials</h4>Trying to connect ESP to network.<br />If it fails reconnect to AP to try again</div>
+        <!-- /HTTP_SAVED -->
+        <!-- HTTP_STATUS_ON -->
+        <div class='msg P'><strong>Connected</strong> to {v}<br/><em><small>with IP {i}</small></em></div>
+        <!-- /HTTP_STATUS_ON -->
+        <!-- HTTP_STATUS_OFF -->
+        <div class='msg {c}'><strong>Not Connected</strong> to {v}{r}</div>
+        <!-- /HTTP_STATUS_OFF -->
+        <!-- sample -->
+        <div class='msg D'><strong>Not Connected</strong> to apname
+        <!-- /sample -->
+        <!-- HTTP_STATUS_OFFPW -->
+            <br/>Authentication Failure
+        <!-- /HTTP_STATUS_OFFPW -->
+        <!-- HTTP_STATUS_OFFNOAP -->
+            <br/>AP not found
+        <!-- /HTTP_STATUS_OFFNOAP -->
+        <!-- HTTP_STATUS_OFFFAIL -->
+            <br/>Could not Connect
+        <!-- /HTTP_STATUS_OFFFAIL -->
+        </div>
+        <!-- HTTP_STATUS_NONE -->
+        <div class='msg'>No AP set</div>
+        <!-- /HTTP_STATUS_NONE -->
+        <!-- SAMPLE -->
+        <div class='msg P'><h4>H4 Color Header P</h4>content</div>
+        <!-- /SAMPLE -->
+        <!-- SAMPLE -->
+        <div class='msg S'><h4>H4 Color Header S</h4>content</div>
+        
+        
     </div>
-	</body>
+</body>
+
 </html>
-<!-- /HTTP_END -->

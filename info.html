@@ -1,13 +1,25 @@
-<!-- HTTP_HEAD -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-		<title>{v}</title>
-<!-- /HTTP_HEAD -->
-<!-- HTTP_STYLE -->
-<style>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Config ESP</title>
+    <script>
+
+    function c(l,e) {
+    	console.log(l);
+    	// preventDefault();
+        document.getElementById('s').value = l.innerText || l.textContent;
+        // document.location.href = document.location +"#wmform";
+        p = l.nextElementSibling.classList.contains("l");
+        document.getElementById('p').disabled = !p;
+        if(p)document.getElementById('p').focus();
+        return false;
+    }
+
+    </script>
+
+<style>
 :root{
 	 /* CSS VARIABLE THEME COLOR */
 	/*--primarycolor:#9933CC;*/
@@ -197,42 +209,48 @@ input:disabled {
 	/* not working in cp ?? */
 }
 </style>
-<!-- /HTTP_STYLE -->
-<!-- HTTP_SCRIPT -->
-		<script>
-		function c(l){document.getElementById('s').value=l.innerText||l.textContent;
-		p = l.nextElementSibling.classList.contains('l');
-		document.getElementById('p').disabled = !p;
-		if(p)document.getElementById('p').focus()};
-		</script>
-<!-- /HTTP_SCRIPT -->
-<!-- HTTP_HEAD_END -->
-	</head>
-	<body class="invert">
-		<div class='wrap'>
-		<!-- <div class='wrap ql qinv'> -->
-<!-- /HTTP_HEAD_END -->
-			<!-- SAMPLE -->
-			<h2>/</h2><hR>
-			<!-- /SAMPLE -->
-			<!-- HTTP_PORTAL_OPTIONS -->
-			<!-- /HTTP_PORTAL_OPTIONS -->
-			<!-- HTTP_PORTAL_MENU[] -->
-			<form action='config_wifi.html' method='get'><button>Configure WiFi</button></form><br/>
-			<form action='Config_mqtt.html' method='get'><button>Configure Mqtt</button></form><br/>
-			<form action='info.html' method='get'><button>Info</button></form><br/>
-			<form action='setup.html' method='get'><button>Setup</button></form><br/>
-			<Hr><br/>
-			<form action='about.html' method='post'><button>About</button></form><br/>
-			<form action='/erase' method='post'><button class='D'>Erase</button></form><br/>
-			<form action='/restart' method='post'><button>Restart</button></form><br/>
-			<form action='/exit' method='post'><button>Exit</button></form><br/>
-			<form action='/' method='post'><button>Back</button></form><br/>
-			<!-- /HTTP_PORTAL_MENU -->
-			
 
-<!-- HTTP_END -->
+</head>
+
+<body class="invert">
+ 	<!-- classes, left/right invert -->
+    <div class='wrap'>
+        <h2>/Info</h3><hr>
+			<dl>
+				<dt>Chip ID</dt><dd>123456</dd>
+				<dt>Flash Chip ID</dt><dd>1234556</dd>
+				<dt>IDE Flash Size</dt><dd>4194304 bytes</dd>
+				<dt>Real Flash Size</dt><dd>4194304 bytes</dd>
+				<dt>Empty</dt><dd></dd>
+				<dt>Soft AP IP</dt><dd>192.168.4.1</dd>
+				<dt>Soft AP MAC</dt><dd>00:00:00:00:00:00</dd>
+				<dt>Station MAC</dt><dd>00:00:00:00:00:00</dd>
+			</dl>
+			<!-- /SAMPLE -->
+			<!-- HTTP_HELP -->
+		 		<br/><h3>Available Pages</h3><hr>
+		 		<table class='table'>
+		 		<thead><tr><th>Page</th><th>Function</th></tr></thead><tbody>
+		 		<tr><td><a href='config_wifi.html'>/wifi</a></td>
+		 		<td>Show WiFi scan results and enter WiFi configuration.(/0wifi noscan)</td></tr>
+		 		<tr><td><a href='Config_mqtt.html'>/Mqtt Setup</a></td>
+		 		<td>Save WiFi configuration information and configure device. Needs variables supplied.</td></tr>
+		 		<tr><td><a href='About.html'>/About</a></td>
+		 		<td>Close the configuration server and configuration WiFi network.</td></tr>
+		 		<tr><td><a href='/info'>/info</a></td>
+		 		<td>Information page</td></tr>
+ 				<tr><td><a href='/Close'>/Close</a></td>
+ 				<td>Close the captiveportal popup,configportal will remain active</td></tr>
+		 		<tr><td><a href='/exit'>/exit</a></td>
+		 		<td>Exit Config Portal, configportal will close</td></tr>
+		 		<tr><td><a href='/restart'>/restart</a></td>
+		 		<td>Reboot the device</td></tr>
+		 		<tr><td><a href='/erase'>/erase</a></td>
+		 		<td>Erase WiFi configuration and reboot Device. Device will not reconnect to a network until new WiFi configuration data is entered.</td></tr>
+		 		</table>
+        
+        
     </div>
-	</body>
+</body>
+
 </html>
-<!-- /HTTP_END -->
