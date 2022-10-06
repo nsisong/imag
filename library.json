@@ -1,0 +1,25 @@
+{
+    "name": "Imag",
+    "version": "Imag_esp_1.0.1",
+    "keywords": "wifi,wi-fi,esp,esp8266,esp32,espressif8266,espressif32,nodemcu,wemos,arduino",
+    "description": "WiFi Configuration manager with web configuration portal for ESP boards",
+    "author":
+    
+      {
+          "name": "nsisong",
+          "url": "https://github.com/nsisong"
+      },
+
+    
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/nsisong/imag.git"
+    },
+    "frameworks": "arduino",
+    "platforms": 
+    [
+      "espressif8266",
+      "espressif32"
+    ]
+  }
