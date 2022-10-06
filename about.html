@@ -1,13 +1,25 @@
-<!-- HTTP_HEAD -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-		<title>{v}</title>
-<!-- /HTTP_HEAD -->
-<!-- HTTP_STYLE -->
-<style>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Config ESP</title>
+    <script>
+
+    function c(l,e) {
+    	console.log(l);
+    	// preventDefault();
+        document.getElementById('s').value = l.innerText || l.textContent;
+        // document.location.href = document.location +"#wmform";
+        p = l.nextElementSibling.classList.contains("l");
+        document.getElementById('p').disabled = !p;
+        if(p)document.getElementById('p').focus();
+        return false;
+    }
+
+    </script>
+
+<style>
 :root{
 	 /* CSS VARIABLE THEME COLOR */
 	/*--primarycolor:#9933CC;*/
@@ -197,42 +209,39 @@ input:disabled {
 	/* not working in cp ?? */
 }
 </style>
-<!-- /HTTP_STYLE -->
-<!-- HTTP_SCRIPT -->
-		<script>
-		function c(l){document.getElementById('s').value=l.innerText||l.textContent;
-		p = l.nextElementSibling.classList.contains('l');
-		document.getElementById('p').disabled = !p;
-		if(p)document.getElementById('p').focus()};
-		</script>
-<!-- /HTTP_SCRIPT -->
-<!-- HTTP_HEAD_END -->
-	</head>
-	<body class="invert">
-		<div class='wrap'>
-		<!-- <div class='wrap ql qinv'> -->
-<!-- /HTTP_HEAD_END -->
-			<!-- SAMPLE -->
-			<h2>/</h2><hR>
-			<!-- /SAMPLE -->
-			<!-- HTTP_PORTAL_OPTIONS -->
-			<!-- /HTTP_PORTAL_OPTIONS -->
-			<!-- HTTP_PORTAL_MENU[] -->
-			<form action='config_wifi.html' method='get'><button>Configure WiFi</button></form><br/>
-			<form action='Config_mqtt.html' method='get'><button>Configure Mqtt</button></form><br/>
-			<form action='info.html' method='get'><button>Info</button></form><br/>
-			<form action='setup.html' method='get'><button>Setup</button></form><br/>
-			<Hr><br/>
-			<form action='about.html' method='post'><button>About</button></form><br/>
-			<form action='/erase' method='post'><button class='D'>Erase</button></form><br/>
-			<form action='/restart' method='post'><button>Restart</button></form><br/>
-			<form action='/exit' method='post'><button>Exit</button></form><br/>
-			<form action='/' method='post'><button>Back</button></form><br/>
-			<!-- /HTTP_PORTAL_MENU -->
+
+</head>
+
+<body class="invert">
+ 	<!-- classes, left/right invert -->
+    <div class='wrap'>
+        <!-- SAMPLE -->
+			
+	
+		 		<h3>About</h3><hr>
+                Name: Imag_esp_101<Br/>
+		 		Version: v1.x.x-xxxxx<br/>
+		 		Build_date:<br/>
+		 		Build_file:<br/>
+		 		ESP_version:<br/>
+		 		<p>Github <a href='https://github.com/nsisong/imag'>https://github.com/nsisong/imag</a>
+			<!-- /HTTP_HELP -->
+			<!-- FORM_UPLOAD -->
+			<Br/><br/>Form UPLOAD<br/>
+			<form method='POST' action='u' enctype='multipart/form-data'>
+				<input type='file' name='update' accept='.bin,application/octet-stream' onchange="(function(el){document.getElementById('uploadbin').style.display = el.value=='' ? 'none' : 'initial';})(this)">
+				<button id='uploadbin' class="h">Submit</button>
+			<a href='http://192.168.4.1' target='_blank'><small>* Upload may not function inside captive portal, Open in browser - http://192.168.4.1</a></small>
+			<!-- /FORM_UPLOAD -->
+
+
+			<!-- FORM_EXTRAS -->
 			
 
-<!-- HTTP_END -->
+			<!-- /FORM_EXTRAS -->
+        
+        
     </div>
-	</body>
+</body>
+
 </html>
-<!-- /HTTP_END -->

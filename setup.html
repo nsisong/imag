@@ -1,13 +1,25 @@
-<!-- HTTP_HEAD -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-		<title>{v}</title>
-<!-- /HTTP_HEAD -->
-<!-- HTTP_STYLE -->
-<style>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Config ESP</title>
+    <script>
+
+    function c(l,e) {
+    	console.log(l);
+    	// preventDefault();
+        document.getElementById('s').value = l.innerText || l.textContent;
+        // document.location.href = document.location +"#wmform";
+        p = l.nextElementSibling.classList.contains("l");
+        document.getElementById('p').disabled = !p;
+        if(p)document.getElementById('p').focus();
+        return false;
+    }
+
+    </script>
+
+<style>
 :root{
 	 /* CSS VARIABLE THEME COLOR */
 	/*--primarycolor:#9933CC;*/
@@ -197,42 +209,47 @@ input:disabled {
 	/* not working in cp ?? */
 }
 </style>
-<!-- /HTTP_STYLE -->
-<!-- HTTP_SCRIPT -->
-		<script>
-		function c(l){document.getElementById('s').value=l.innerText||l.textContent;
-		p = l.nextElementSibling.classList.contains('l');
-		document.getElementById('p').disabled = !p;
-		if(p)document.getElementById('p').focus()};
-		</script>
-<!-- /HTTP_SCRIPT -->
-<!-- HTTP_HEAD_END -->
-	</head>
-	<body class="invert">
-		<div class='wrap'>
-		<!-- <div class='wrap ql qinv'> -->
-<!-- /HTTP_HEAD_END -->
-			<!-- SAMPLE -->
-			<h2>/</h2><hR>
-			<!-- /SAMPLE -->
-			<!-- HTTP_PORTAL_OPTIONS -->
-			<!-- /HTTP_PORTAL_OPTIONS -->
-			<!-- HTTP_PORTAL_MENU[] -->
-			<form action='config_wifi.html' method='get'><button>Configure WiFi</button></form><br/>
-			<form action='Config_mqtt.html' method='get'><button>Configure Mqtt</button></form><br/>
-			<form action='info.html' method='get'><button>Info</button></form><br/>
-			<form action='setup.html' method='get'><button>Setup</button></form><br/>
-			<Hr><br/>
-			<form action='about.html' method='post'><button>About</button></form><br/>
-			<form action='/erase' method='post'><button class='D'>Erase</button></form><br/>
-			<form action='/restart' method='post'><button>Restart</button></form><br/>
-			<form action='/exit' method='post'><button>Exit</button></form><br/>
-			<form action='/' method='post'><button>Back</button></form><br/>
-			<!-- /HTTP_PORTAL_MENU -->
-			
 
-<!-- HTTP_END -->
+</head>
+
+<body class="invert">
+ 	<!-- classes, left/right invert -->
+    <div class='wrap'>
+        <br/><br/><br/><hr>
+			<br/>
+			<label for='custom'>Device Name</label>
+			<br/>
+			<input id='custom' name='custom' length='255' placeholder='Device Name' value='' {c}>
+			<br/>
+
+			<!-- INOUT CHECKBOX -->
+			<!-- <label for='input_checkbox'>Label for Input Checkbox</label> -->
+			<input id='input_checkbox' name='input_checkbox' placeholder='placeholder' value='' type="checkbox" {c}>
+			<label for='input_checkbox'>Label for Input Checkbox</label>
+			<br/>
+
+			<!-- INPUT CHOICE -->
+			<p>Device Type</p>
+			<input style='display: inline-block;' type='radio' id='choice1' name='program_selection' value='1'>
+  			<label for='choice1'>Emergency</label><br>
+  			<input style='display: inline-block;' type='radio' id='choice2' name='program_selection' value='2'>
+  			<label for='choice2'>Non-Emergency</label><br>
+
+  			<!-- INPUT SELECT -->
+			<br/>
+			<label for='input_select'>Pin Mode Select</label>
+			<select name="input_select" id="input_select" class="button">
+			<option value="0">OutputA</option>
+			<option value="1" selected>Output_A</option>
+            <option value="3">PWM Output</option>
+			<option value="2">Input</option>
+			<option value="3">PWM Input</option>
+			</select>
+
+			</form>
+        
+        
     </div>
-	</body>
+</body>
+
 </html>
-<!-- /HTTP_END -->
