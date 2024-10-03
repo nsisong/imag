@@ -3,7 +3,7 @@
 
 /*Put your SSID & Password*/
 const char* ssid = "Nsisong Phone";  // Enter SSID here
-const char* password = "ppppppppp";  //Enter Password here
+const char* password = "Nsisong1";  //Enter Password here
 
 ESP8266WebServer server(80);
 

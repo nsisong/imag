@@ -1,0 +1,18 @@
+# Class Definitions (TYPE1 means highlighted as an object)
+Imag         KEYWORD1
+
+# Functions (TYPE2 means highlighted as a function)
+setupWiFi    KEYWORD2
+scanWiFi     KEYWORD2
+setupMQTT    KEYWORD2
+connectMQTT  KEYWORD2
+publishMQTT  KEYWORD2
+setupDevice  KEYWORD2
+startWebServer   KEYWORD2
+handleRoot   KEYWORD2
+handleWiFiConfig KEYWORD2
+handleMQTTConfig KEYWORD2
+handleDeviceInfo KEYWORD2
+reconnectMQTT    KEYWORD2
+saveWiFiConfig   KEYWORD2
+saveMQTTConfig   KEYWORD2
